@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Bank - Oyun</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="card-title mb-0">Word Bank</h3>
+                            <div class="timer h3">60</div>
+                        </div>
+
+                        <div class="current-question mb-4">
+                            <h4>Kategori: <span id="categoryName"></span></h4>
+                            <h4>Harf: <span id="startingLetter"></span></h4>
+                        </div>
+
+                        <div class="answer-section mb-4">
+                            <div class="input-group">
+                                <input type="text" id="answerInput" class="form-control" placeholder="Cevabınızı yazın">
+                                <button id="submitAnswer" class="btn btn-primary">Gönder</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="player-section">
+                                    <h5>Sizin Cevaplarınız</h5>
+                                    <ul id="playerAnswers" class="list-group">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="opponent-section">
+                                    <h5>Rakip Cevapları</h5>
+                                    <ul id="opponentAnswers" class="list-group">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Score Modal -->
+    <div class="modal fade" id="scoreModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="scoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="scoreModalLabel">Oyun Bitti!</h5>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Oyuncu</th>
+                                <th>Doğru Kelime</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scoreTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='/game-room.html'">Ana Menüye Dön</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
